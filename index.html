@@ -1,0 +1,116 @@
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <title>Random Quote Machine by Ninrix</title>
+      <script>
+    const QUOTEBANK = [
+   { quote: "Reject the basic assumptions of civilization, especially the importance of material possessions.",
+    author: "- Tyler Durden" 
+   },
+    { quote: "All my life, my heart has sought a thing I cannot name. Remembered line from a long-forgotten poem.",
+    author: "- Hunter Thompson"
+    },
+    { quote: "Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it.",
+      author: "- Rumi"
+    },
+    { quote: "The happiness of your life depends upon the quality of your thoughts.",
+      author: "- Marcus Aurelius"
+    },
+    { quote: "A man with outward courage dares to die; a man with inner courage dares to live.",
+      author: "- Lao Tzu"
+    },
+    { quote: "You will never find happiness until you stop looking for it.",
+      author: "- Willie Nelson"
+    },
+    { quote: "If you know neither the enemy nor yourself, you will succumb in every battle.",
+      author: "- Sun Tzu"
+    },
+    { quote: "How can I be substantial if I do not cast a shadow? I must have a dark side also If I am to be whole.",
+      author: "- Carl Jung"
+    },
+    { quote: "Muddy water is best cleared by leaving it alone.",
+      author: "- Alan Watts"
+    },
+    { quote: "All conditioned things are impermanent—when one sees this with wisdom, one turns away from suffering.",
+      author: "- Buddha"
+    },
+    { quote: "Worse, you're smart. When you know nothing matters, the universe is yours. And I've never met a universe that was into it. The universe is basically an animal. It grazes on the ordinary.",
+      author: "- Rick Sanchez"
+    },
+    { quote: "Hitting bottom isn't a weekend retreat, it's not a goddamn seminar. Stop trying to control everything and just let go. Let go!",
+      author: "- Tyler Durden"
+    },
+    { quote: "Yeah, Well, You Know, That's Just, Like, Your Opinion, Man.",
+      author: "- The Dude"
+    },
+    { quote: "You can turn your back on a person, but, never turn your back on a drug.",
+      author: "- Raoul Duke"
+    },
+    { quote: "I’m not a monster. I’m just ahead of the curve.",
+      author: "- The Joker"
+    }
+  ];
+
+window.onload = init;
+  function init() {
+    generateQuote();
+  }
+
+    function generateQuote(){
+        let quoteSize = QUOTEBANK.length;
+        let randomIndex = Math.floor(Math.random()*quoteSize);
+        let randomQuoteData = QUOTEBANK[randomIndex];
+        
+        let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="
+        
+        //Add the quote
+        let quoteInApiFormat = randomQuoteData.quote.replace(/ /g, "%20"); 
+        twitterLink += quoteInApiFormat
+        //Add the author
+        let authorInApiFormat = randomQuoteData.author.replace(/ /g, "%20"); 
+        twitterLink += " " + authorInApiFormat
+        
+        document.getElementById("tweet-quote").href = twitterLink;
+        document.getElementById("text").innerText = randomQuoteData.quote;
+        document.getElementById("author").innerText = randomQuoteData.author;
+    }
+      </script>
+    
+    
+    <body>
+
+      <div class="container">
+        <div class="row py-5">
+<wrapper id="quote-box">
+    <div class="card">
+        <div class="card-header text-center">
+        <h3>Random Quote Machine</h3>
+        </div>
+        <div class="card-body">
+        <h5 class="card-title"><div id="text"></div></h5>
+        <p class="card-text"><div id="author"></div></p>
+        <button id="new-quote" onClick="generateQuote();" class="btn btn-success">New Quote</button>
+    <a href=# id="tweet-quote" target="_blank" class="btn btn-primary">Tweet Quote</a>
+    </div>
+    </div>
+        </div>
+       
+        </wrapper>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+               
+  </div>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+      </body>
+    </head>
+
+</html>
+  
+          
+     
+
+
+
